@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Software Engineer Portfolio Website">
+    <title>Software Engineer Portfolio</title>
+    <!-- Google Fonts: Luxury Typography & Retro Accents -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+    <!-- Link to external stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 3D Interactive WebGL Background Canvas Layer -->
+    <canvas id="webgl-canvas" class="webgl-canvas" aria-hidden="true"></canvas>
+
+    <!-- Ambient Glowing Cursor Follower Orb -->
+    <div id="cursor-glow" class="cursor-glow" aria-hidden="true"></div>
+
+    <!-- ========================================================= -->
+    <!-- MOBILE TOPBAR (Visible on small screens) -->
+    <!-- ========================================================= -->
+    <header id="mobile-header" class="mobile-topbar" aria-label="Mobile Navigation Bar">
+        <div class="mobile-logo">
+            <a href="#hero">&lt;RITEESH.DEV/&gt;</a>
+        </div>
+        <button type="button" id="mobile-menu-btn" class="pixel-btn mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="site-sidebar">
+            <span>☰</span> <span>MENU</span>
+        </button>
+    </header>
+
+    <!-- Overlay backdrop for mobile navigation -->
+    <div id="sidebar-backdrop" class="sidebar-backdrop" aria-hidden="true"></div>
+
+    <!-- ========================================================= -->
+    <!-- VERTICAL NAVIGATION BAR (LEFT SIDE OF THE SCREEN) -->
+    <!-- ========================================================= -->
+    <aside id="site-sidebar" class="site-sidebar" aria-label="Primary Vertical Navigation">
+        <!-- Sidebar Branding -->
+        <div class="sidebar-header">
+            <div class="sidebar-logo">
+                <a href="#hero">
+                    <span class="pixel-brand-tag">[DEV PROFILE]</span>
+                    <span class="pixel-brand-title">&lt;RITEESH/&gt;</span>
+                </a>
+            </div>
+            <div class="sidebar-player-status">
+                <span class="status-dot"></span>
+                <span>LVL 99 DEV</span>
+            </div>
+        </div>
+
+        <!-- Vertical Navigation Links -->
+        <nav class="sidebar-nav" aria-label="Main Navigation">
+            <ul class="vertical-nav-list">
+                <li class="nav-item">
+                    <a href="#hero" class="nav-link active" aria-current="page">
+                        <span class="nav-link-content">
+                            <span class="nav-icon" aria-hidden="true">🏠</span>
+                            <span class="nav-label">Home</span>
+                        </span>
+                        <span class="nav-cursor" aria-hidden="true">▶</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">
+                        <span class="nav-link-content">
+                            <span class="nav-icon" aria-hidden="true">👤</span>
+                            <span class="nav-label">About Me</span>
+                        </span>
+                        <span class="nav-cursor" aria-hidden="true">▶</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#skills" class="nav-link">
+                        <span class="nav-link-content">
+                            <span class="nav-icon" aria-hidden="true">⚡</span>
+                            <span class="nav-label">Skills</span>
+                        </span>
+                        <span class="nav-cursor" aria-hidden="true">▶</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#timeline" class="nav-link">
+                        <span class="nav-link-content">
+                            <span class="nav-icon" aria-hidden="true">📜</span>
+                            <span class="nav-label">Timeline</span>
+                        </span>
+                        <span class="nav-cursor" aria-hidden="true">▶</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#projects" class="nav-link">
+                        <span class="nav-link-content">
+                            <span class="nav-icon" aria-hidden="true">⚔️</span>
+                            <span class="nav-label">Projects</span>
+                        </span>
+                        <span class="nav-cursor" aria-hidden="true">▶</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#testimonials" class="nav-link">
+                        <span class="nav-link-content">
+                            <span class="nav-icon" aria-hidden="true">💬</span>
+                            <span class="nav-label">Testimonials</span>
+                        </span>
+                        <span class="nav-cursor" aria-hidden="true">▶</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#chat" class="nav-link">
+                        <span class="nav-link-content">
+                            <span class="nav-icon" aria-hidden="true">🤖</span>
+                            <span class="nav-label">Chat</span>
+                        </span>
+                        <span class="nav-cursor" aria-hidden="true">▶</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">
+                        <span class="nav-link-content">
+                            <span class="nav-icon" aria-hidden="true">✉️</span>
+                            <span class="nav-label">Contact</span>
+                        </span>
+                        <span class="nav-cursor" aria-hidden="true">▶</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Sidebar Footer with Night Mode Toggle -->
+        <div class="sidebar-footer">
+            <div class="theme-toggle-container">
+                <button type="button" id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle night mode" aria-pressed="false">
+                    <span>🌙 NIGHT MODE</span>
+                </button>
+            </div>
+            <p class="sidebar-system-info">SYS_READY // V1.0</p>
+        </div>
+    </aside>
+
+    <!-- ========================================================= -->
+    <!-- MAIN CONTENT -->
+    <!-- ========================================================= -->
+    <main>
+
+        <!-- ===================================================== -->
+        <!-- HERO SECTION (PREMIUM 3D CYBER-LUXE) -->
+        <!-- ===================================================== -->
+        <section id="hero" aria-labelledby="hero-title">
+            <div class="hero-wrapper">
+                
+                <!-- Hero Window / Quest Box (3D Tilt Card) -->
+                <div class="hero-dialog-box" data-tilt>
+                    <div class="hero-dialog-header">
+                        <span class="pixel-badge">[PLAYER 1: ACTIVE]</span>
+                        <div class="status-indicator">
+                            <span class="status-dot"></span>
+                            <span>ONLINE // NEURAL READY</span>
+                        </div>
+                    </div>
+                    
+                    <p class="hero-greeting">&gt; WELCOME VISITOR_</p>
+                    <h1 id="hero-title" class="hero-title">
+                        HELLO WORLD! I'M <span class="highlight">RITEESH</span>
+                    </h1>
+                    <p class="hero-tagline">
+                        Software Engineer &amp; Full-Stack Architect
+                    </p>
+                    <p class="hero-bio">
+                        Engineering resilient cloud systems, high-concurrency microservices, and immersive interactive 3D digital experiences.<span class="typing-cursor">█</span>
+                    </p>
+                    
+                    <div class="hero-cta">
+                        <a href="#projects" class="pixel-btn pixel-btn-primary">
+                            <span>⚔</span> VIEW PROJECTS
+                        </a>
+                        <a href="#contact" class="pixel-btn pixel-btn-secondary">
+                            <span>✉</span> TRANSMIT MESSAGE
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hero Pixel Avatar / 3D Holographic Display Frame -->
+                <div class="hero-avatar-box" data-tilt>
+                    <div class="avatar-screen">
+                        <img src="WhatsApp Image 2026-10-07 at 11.57.24 AM (1).jpeg" alt="Riteesh - Software Engineer" class="avatar-img">
+                        <div class="hologram-glare" aria-hidden="true"></div>
+                    </div>
+                    <div class="avatar-caption">
+                        <span>RITEESH</span>
+                        <span>LVL 99</span>
+                    </div>
+                    <div class="avatar-stats">
+                        <div class="stat-item"><span>HP</span> <span>100/100</span></div>
+                        <div class="stat-item"><span>MP</span> <span>100/100</span></div>
+                        <div class="stat-item"><span>ROLE</span> <span>FULLSTACK</span></div>
+                        <div class="stat-item"><span>EXP</span> <span>MAX</span></div>
+                    </div>
+                </div>
+
+                <!-- Floating 3D Cursor Parallax Chips -->
+                <div class="hero-float-chips" aria-hidden="true">
+                    <div class="float-chip chip-1" data-parallax="40">
+                        <span class="chip-glow-dot"></span>
+                        <span class="chip-text">⚡ DISTRIBUTED SYSTEMS</span>
+                    </div>
+                    <div class="float-chip chip-2" data-parallax="-35">
+                        <span class="chip-glow-dot"></span>
+                        <span class="chip-text">🎮 THREE.JS &amp; 3D CREATIVE</span>
+                    </div>
+                    <div class="float-chip chip-3" data-parallax="25">
+                        <span class="chip-glow-dot"></span>
+                        <span class="chip-text">🛡️ CLOUD ARCHITECTURE</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ===================================================== -->
+        <!-- ABOUT SECTION -->
+        <!-- ===================================================== -->
+        <!-- 
+            Placeholder: About Section
+            Detailed background, philosophy, passions, and quick facts.
+        -->
+        <section id="about" aria-labelledby="about-title">
+            <h2 id="about-title">About Me</h2>
+            <div class="about-content">
+                <p>
+                    <!-- Add your personal bio, engineering interests, and background here. -->
+                    I am a software engineer passionate about writing clean, maintainable code 
+                    and solving complex technical challenges.
+                </p>
+                <ul class="about-highlights">
+                    <li><strong>Location:</strong> [City, Country]</li>
+                    <li><strong>Focus:</strong> [Frontend / Backend / Full Stack / Systems]</li>
+                    <li><strong>Availability:</strong> Open to opportunities</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ===================================================== -->
+        <!-- SKILLS SECTION -->
+        <!-- ===================================================== -->
+        <!-- 
+            Placeholder: Skills Section
+            Categorized technical skills (languages, frameworks, tools, databases).
+        -->
+        <section id="skills" aria-labelledby="skills-title">
+            <h2 id="skills-title">Technical Skills</h2>
+            <div class="skills-grid">
+                
+                <!-- Category: Programming Languages -->
+                <div class="skill-category" data-tilt>
+                    <h3>Languages</h3>
+                    <ul>
+                        <li>JavaScript / TypeScript</li>
+                        <li>Python</li>
+                        <li>C++ / Java</li>
+                        <li>HTML5 / CSS3</li>
+                    </ul>
+                </div>
+
+                <!-- Category: Frameworks & Libraries -->
+                <div class="skill-category" data-tilt>
+                    <h3>Frameworks &amp; Libraries</h3>
+                    <ul>
+                        <li>React / Next.js</li>
+                        <li>Node.js / Express</li>
+                        <li>Django / Flask</li>
+                    </ul>
+                </div>
+
+                <!-- Category: Tools & Platforms -->
+                <div class="skill-category" data-tilt>
+                    <h3>Tools &amp; DevOps</h3>
+                    <ul>
+                        <li>Git / GitHub</li>
+                        <li>Docker</li>
+                        <li>AWS / Cloud Services</li>
+                        <li>Linux / Bash</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ===================================================== -->
+        <!-- TIMELINE SECTION (Experience & Education) -->
+        <!-- ===================================================== -->
+        <!-- 
+            Placeholder: Timeline Section
+            Chronological list of career experience, internships, and education.
+        -->
+        <section id="timeline" aria-labelledby="timeline-title">
+            <h2 id="timeline-title">Experience &amp; Education</h2>
+            <div class="timeline-container">
+
+                <!-- Timeline Item: Work Experience -->
+                <article class="timeline-item" data-tilt>
+                    <span class="timeline-date">2024 &ndash; Present</span>
+                    <h3 class="timeline-role">Software Engineer</h3>
+                    <p class="timeline-organization">Company / Organization Name</p>
+                    <p class="timeline-description">
+                        Description of responsibilities, achievements, and technologies used.
+                    </p>
+                </article>
+
+                <!-- Timeline Item: Previous Experience / Internship -->
+                <article class="timeline-item" data-tilt>
+                    <span class="timeline-date">2023 &ndash; 2024</span>
+                    <h3 class="timeline-role">Software Engineer Intern</h3>
+                    <p class="timeline-organization">Previous Company</p>
+                    <p class="timeline-description">
+                        Key projects worked on, problem statements solved, and impact delivered.
+                    </p>
+                </article>
+
+                <!-- Timeline Item: Education -->
+                <article class="timeline-item" data-tilt>
+                    <span class="timeline-date">2020 &ndash; 2024</span>
+                    <h3 class="timeline-role">B.Tech / B.S. in Computer Science</h3>
+                    <p class="timeline-organization">University Name</p>
+                    <p class="timeline-description">
+                        Relevant coursework, honors, or extracurricular achievements.
+                    </p>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- ===================================================== -->
+        <!-- PROJECTS SECTION -->
+        <!-- ===================================================== -->
+        <!-- 
+            Placeholder: Projects Section
+            Showcase key projects with descriptions, tech stacks, live links, and repos.
+        -->
+        <section id="projects" aria-labelledby="projects-title">
+            <h2 id="projects-title">Featured Projects</h2>
+            <div class="projects-grid">
+
+                <!-- Project Card 1 -->
+                <article class="project-card" data-tilt>
+                    <header>
+                        <h3 class="project-title">Project Name One</h3>
+                    </header>
+                    <p class="project-description">
+                        A brief description of what problem this project solves and its core features.
+                    </p>
+                    <ul class="project-tech-stack" aria-label="Technologies used">
+                        <li>React</li>
+                        <li>Node.js</li>
+                        <li>PostgreSQL</li>
+                    </ul>
+                    <footer class="project-links">
+                        <a href="#" target="_blank" rel="noopener noreferrer">Live Demo</a>
+                        <a href="#" target="_blank" rel="noopener noreferrer">Source Code</a>
+                    </footer>
+                </article>
+
+                <!-- Project Card 2 -->
+                <article class="project-card" data-tilt>
+                    <header>
+                        <h3 class="project-title">Project Name Two</h3>
+                    </header>
+                    <p class="project-description">
+                        Summary of the architecture, key performance metrics, or unique technical approach.
+                    </p>
+                    <ul class="project-tech-stack" aria-label="Technologies used">
+                        <li>Python</li>
+                        <li>FastAPI</li>
+                        <li>Redis</li>
+                    </ul>
+                    <footer class="project-links">
+                        <a href="#" target="_blank" rel="noopener noreferrer">Live Demo</a>
+                        <a href="#" target="_blank" rel="noopener noreferrer">Source Code</a>
+                    </footer>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- ===================================================== -->
+        <!-- TESTIMONIALS SECTION -->
+        <!-- ===================================================== -->
+        <!-- 
+            Placeholder: Testimonials Section
+            Endorsements, recommendations, and quotes from teammates/clients.
+        -->
+        <section id="testimonials" aria-labelledby="testimonials-title">
+            <h2 id="testimonials-title">Testimonials</h2>
+            <div class="testimonials-content">
+                <article class="testimonial-card" data-tilt>
+                    <p class="testimonial-quote">
+                        "Riteesh delivers high quality, scalable solutions with an exceptional eye for detail and problem solving."
+                    </p>
+                    <p class="testimonial-author">&ndash; Engineering Mentor / Tech Lead</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- ===================================================== -->
+        <!-- AI CHAT INTERFACE SECTION -->
+        <!-- ===================================================== -->
+        <!-- 
+            Placeholder: AI Chat Section
+            Interactive chat window to query developer background, skills, and projects.
+        -->
+        <section id="chat" aria-labelledby="chat-title">
+            <h2 id="chat-title">Interactive AI Chat</h2>
+            <div class="chat-placeholder" data-tilt>
+                <p>&gt; System online. AI agent interface ready for conversation.</p>
+            </div>
+        </section>
+
+        <!-- ===================================================== -->
+        <!-- CONTACT SECTION -->
+        <!-- ===================================================== -->
+        <!-- 
+            Placeholder: Contact Section
+            Ways to reach out: email, social profiles, or a contact form.
+        -->
+        <section id="contact" aria-labelledby="contact-title">
+            <h2 id="contact-title">Get In Touch</h2>
+            <p>Feel free to reach out for collaborations, inquiries, or just a friendly chat!</p>
+            <div class="contact-details">
+                <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+                <div class="social-links">
+                    <a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">Twitter / X</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ========================================================= -->
+    <!-- FOOTER -->
+    <!-- ========================================================= -->
+    <footer id="site-footer">
+        <p>&copy; 2026 [Your Name]. All rights reserved.</p>
+        <p>Built with semantic HTML &amp; accessible web standards.</p>
+    </footer>
+
+    <!-- Three.js 3D WebGL Library from CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- JavaScript for 3D elements, cursor motion, and theming -->
+    <script src="script.js"></script>
+</body>
+</html>
